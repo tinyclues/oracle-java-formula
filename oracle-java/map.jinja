@@ -1,0 +1,7 @@
+{% set oracle_java = salt['grains.filter_by']({
+    'Debian': {
+        'package_name': 'oracle-java7-installer',
+        'set_default_package_name': 'oracle-java7-set-default',
+        'configuration_file_path': '/etc/elasticsearch/elasticsearch.yml'
+    },
+}, merge=salt['pillar.get']('oracle_java:lookup')) %}
